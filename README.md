@@ -36,7 +36,9 @@ Update script `/routes/modules/[modulecode]/+page.svelte` to the following:
 
 ```html
 <script>
-    export let params;
+    // export let params;  << $app/state is now the recommended method to access page parameters
+    import { page } from '$app/state';
+    let params = page.params;
 </script>
 
 <h1>
@@ -59,7 +61,10 @@ If we wish, we could be a bit more organised, and put the code into its own vari
 `/routes/modules/[modulecode]/+page.svelte`
 ```html
 <script>
-    export let params;
+    // export let params;  << $app/state is now the recommended method to access page parameters
+    import { page } from '$app/state';
+    let params = page.params;
+    
     let moduleCode = params.modulecode
 </script>
 
